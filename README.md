@@ -43,7 +43,9 @@ The application will open in your default web browser at `http://localhost:8501`
 
 ## 📖 Usage Guide
 
-### 1. Prepare Your Data
+### Dashboard Application (Recommended)
+
+#### 1. Prepare Your Data
 
 Your data file (CSV or XLSX) should contain at least one column with customer feedback text. Example:
 
@@ -53,24 +55,24 @@ Your data file (CSV or XLSX) should contain at least one column with customer fe
 | 2 | هذا المنتج رائع جدا | 2024-01-16 |
 | 3 | Terrible experience | 2024-01-17 |
 
-### 2. Upload Your File
+#### 2. Upload Your File
 
 - Click on "Choose a CSV or XLSX file" button
 - Select your data file
 - Preview the data to ensure it loaded correctly
 
-### 3. Select Text Column
+#### 3. Select Text Column
 
 - Choose the column containing customer feedback/reviews from the dropdown
 - Preview sample text to confirm selection
 
-### 4. Analyze Sentiment
+#### 4. Analyze Sentiment
 
 - Click "Analyze Sentiment" button
 - Wait for the model to load and process the data
 - View comprehensive results and visualizations
 
-### 5. Explore Results
+#### 5. Explore Results
 
 The dashboard provides:
 - **Key Metrics**: Total reviews, positive/neutral/negative counts and percentages
@@ -79,6 +81,29 @@ The dashboard provides:
 - **Confidence Scores**: Histogram of prediction confidence
 - **Detailed Table**: Filterable table with all results
 - **Download Options**: Export results as CSV or Excel
+
+### Command-Line Interface (CLI)
+
+For batch processing or automation, use the CLI:
+
+```bash
+# Basic usage
+python cli.py input.csv output.csv --text-column customer_feedback
+
+# Excel files
+python cli.py data.xlsx results.xlsx --text-column reviews
+
+# Display summary only (no output file)
+python cli.py input.csv --text-column feedback --summary-only
+
+# Short form
+python cli.py input.csv output.csv -t feedback
+```
+
+After installation with setup.py, you can also use:
+```bash
+sentiment-cli input.csv output.csv --text-column feedback
+```
 
 ## 🧪 Testing with Sample Data
 
@@ -95,11 +120,15 @@ A sample data file (`sample_data.csv`) is included with mixed English and Arabic
 
 ```
 customer-sentiment-analysis/
-├── app.py                  # Streamlit dashboard application
-├── sentiment_analyzer.py   # Core sentiment analysis engine
-├── requirements.txt        # Python dependencies
-├── sample_data.csv        # Sample data for testing
-└── README.md              # Documentation
+├── app.py                      # Streamlit dashboard application
+├── sentiment_analyzer.py       # Core sentiment analysis engine
+├── cli.py                      # Command-line interface
+├── test_sentiment_analyzer.py  # Unit tests
+├── requirements.txt            # Python dependencies
+├── setup.py                    # Installation script
+├── sample_data.csv            # Sample data for testing
+├── .gitignore                 # Git ignore patterns
+└── README.md                  # Documentation
 ```
 
 ### Models
