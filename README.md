@@ -41,6 +41,10 @@ streamlit run app.py
 
 The application will open in your default web browser at `http://localhost:8501`
 
+📖 **New to the tool?** Check out our [Quick Start Guide](QUICK_START.md) for a step-by-step walkthrough!
+
+💡 **Want more examples?** See [Usage Examples](USAGE_EXAMPLES.md) for detailed code samples and use cases.
+
 ## 📖 Usage Guide
 
 ### Dashboard Application (Recommended)
